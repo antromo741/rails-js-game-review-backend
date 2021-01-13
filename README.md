@@ -1,4 +1,5 @@
 Rails JS Game Review App Backend
+
 /*
 t.string :name
 t.references :user
@@ -18,3 +19,4 @@ Reviews
  belongs_to :user
  belongs_to :game
 
+rails g scaffold Game name user:references
