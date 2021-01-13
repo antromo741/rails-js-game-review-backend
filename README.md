@@ -1,24 +1,20 @@
-# README
+Rails JS Game Review App Backend
+/*
+t.string :name
+t.references :user
+*/
+Game
+  belongs_to :user
+  has_many :reviews
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+/*
+t.string :name
+t.text :review_post
+t.references :user
+t.references :todo_list
+*/
+Reviews
+ belongs_to :user
+ belongs_to :game
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
