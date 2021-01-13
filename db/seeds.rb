@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.first
+
+super_mario = user.games.find_or_create_by(name: "Super Mario")
+
+review_1 = user.reviews.find_or_create_by(name: "Best Game Ever",
+     review_post: "Boy golly I really love this game theres a guy called bowser and he has goombas", game_id: super_mario.id )
