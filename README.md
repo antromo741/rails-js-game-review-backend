@@ -13,10 +13,12 @@ Game
 t.string :name
 t.text :review_post
 t.references :user
-t.references :todo_list
+t.references :game
 */
-Reviews
+Review
  belongs_to :user
  belongs_to :game
 
 rails g scaffold Game name user:references
+
+rails g scaffold Review name review_post:text user:references game:references
