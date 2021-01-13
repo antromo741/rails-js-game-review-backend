@@ -30,3 +30,4 @@ rails g scaffold Game name user:references
 ```
 rails g scaffold Review name review_post:text user:references game:references
 ```
+Hello
