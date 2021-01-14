@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
 
-    render json: @games
+    render json: GameSerializer.new(@games).serializable_hash[:data].map{|hash| hash[:attributes]}
   end
 
   # GET /games/1

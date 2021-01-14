@@ -9,6 +9,10 @@
 user = User.first
 
 super_mario = user.games.find_or_create_by(name: "Super Mario")
-
 review_1 = user.reviews.find_or_create_by(name: "Best Game Ever",
      review_post: "Boy golly I really love this game theres a guy called bowser and he has goombas", game_id: super_mario.id )
+
+megaman = user.games.find_or_create_by(name: "Megaman")
+review_1 = user.reviews.find_or_create_by(name: "Fun 2D Shooter", 
+review_post: "This game has a great soundtrack", game_id: megaman.id )
+     
