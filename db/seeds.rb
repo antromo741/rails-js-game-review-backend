@@ -16,3 +16,6 @@ megaman = user.games.find_or_create_by(name: "Megaman")
 review_1 = user.reviews.find_or_create_by(name: "Fun 2D Shooter", 
 review_post: "This game has a great soundtrack", game_id: megaman.id )
      
+pokemon = user.games.find_or_create_by(name: "Pokemon")
+review_1 = user.reviews.find_or_create_by(name: "Cool rpg", 
+review_post: "I like pikachu", game_id: pokemon.id )
