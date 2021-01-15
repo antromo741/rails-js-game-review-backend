@@ -15,12 +15,12 @@ class GamesController < ApplicationController
 
   # POST /games
   def create
-    @game = Game.new(game_params)
+    @game = current_user.games.build(game_params)
 
     if @game.save
       render json: @game, status: :created, location: @game
     else
-      render json: @game.errors, status: :unprocessable_entity
+      render json: @game.errors.full_messages.to_sentence, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +46,6 @@ class GamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def game_params
-      params.require(:game).permit(:name, :user_id)
+      params.require(:game).permit(:name)
     end
 end
