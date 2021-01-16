@@ -10,7 +10,10 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
-    render json: @game
+    render json: {
+      id: params[:id],
+      reviewsAttributes:GameReviewSerializer.new(@game, include: [:reviews]).serializable_hash[:included].map{|hash| hash[:attributes]}
+    }
   end
 
   # POST /games
