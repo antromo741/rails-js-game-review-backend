@@ -18,7 +18,7 @@ class GamesController < ApplicationController
     @game = current_user.games.build(game_params)
 
     if @game.save
-      render json: @game, status: :created, location: @game
+      render json: GameSerializer.new(@game).serializable_hash[:data][:attributes], status: :created, locaton: @game
     else
       render json: @game.errors.full_messages.to_sentence, status: :unprocessable_entity
     end
