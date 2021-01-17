@@ -39,12 +39,13 @@ class GamesController < ApplicationController
   # DELETE /games/1
   def destroy
     @game.destroy
+    render json: {id: @game.id}, status: :ok
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
-      @game = Game.find(params[:id])
+      @game = current_user.games.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
