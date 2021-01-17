@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   def update
     if @review.update(review_params)
-      render json: ReviewSerializer.new(@review).serializable_hash[:data][:attributes]
+      render json: ReviewSerializer.new(@review).serializable_hash[:data][:attributes],  status: :ok
     else
       render json: @review.errors.full_messages.to_sentence, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   def destroy
     @review.destroy
-    render json: {id: @review.id}, status: :ok
+    render json: ReviewSerializer.new(@review).serializable_hash[:data][:attributes], status: :ok
   end
 
   private

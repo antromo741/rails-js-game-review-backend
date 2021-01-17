@@ -10,10 +10,12 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
-    render json: {
-      id: params[:id],
-      reviewsAttributes:GameReviewSerializer.new(@game, include: [:reviews]).serializable_hash[:included].map{|hash| hash[:attributes]}
+    @game.make_active_game_for(current_user)
+    data = {
+      game: GameSerializer.new(@game).serializable_hash[:data][:attributes], 
+      reviews: GameReviewSerializer.new(@game, include: [:reviews]).serializable_hash[:included].map{|t| t[:attributes]}
     }
+    render json: data, status: :ok
   end
 
   # POST /games
@@ -30,16 +32,16 @@ class GamesController < ApplicationController
   # PATCH/PUT /games/1
   def update
     if @game.update(game_params)
-      render json: @game
+      render json: GameSerializer.new(@game).serializable_hash[:data][:attributes], status: :ok, location: @game
     else
-      render json: @game.errors, status: :unprocessable_entity
+      render json: @game.errors.full_messages.to_sentence, status: :unprocessable_entity
     end
   end
 
   # DELETE /games/1
   def destroy
     @game.destroy
-    render json: {id: @game.id}, status: :ok
+    render json: GameSerializer.new(@game).serializable_hash[:data][:attributes], status: :ok
   end
 
   private
