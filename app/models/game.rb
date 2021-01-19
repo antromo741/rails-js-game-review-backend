@@ -6,7 +6,7 @@ class Game < ApplicationRecord
 
   def make_active_game_for(user)
     user.games.update_all(active: false)
-    self.update(active:true)
+    self.update(active: true)
   end
 end
 
