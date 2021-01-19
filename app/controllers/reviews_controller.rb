@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   def destroy
     @review.destroy
-    render json: ReviewSerializer.new(@review).serializable_hash[:data][:attributes], status: :ok
+    render json: {id: @review.id}, status: :ok
   end
 
   private
