@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  get 'current_user', to: 'current_user#index'
 end
