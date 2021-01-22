@@ -20,12 +20,12 @@ We used postgres to make a database server, you will need the database sever to 
 
 ## Getting Started 
 
--In the command line run rails db:migrate and migrate the files. 
--This is optional, if you would like you can run rails db:seed to get some data into the appliction.
--Connect to your database server and keep it running.
--Now just run your rails server and you will be all set to connect to the front end once it is open in thr browser.
--In the front end, you can open the index using explorer.exe my_index.html.
--Now to get aanything to work properly you need to be authenticated and sign in.
+In the command line run rails db:migrate and migrate the files.\
+This is optional, if you would like you can run rails db:seed to get some data into the appliction.\
+Connect to your database server and keep it running.\
+Now just run your rails server and you will be all set to connect to the front end once it is open in thr browser.\
+In the front end, you can open the index using explorer.exe my_index.html.\
+Now to get aanything to work properly you need to be authenticated and sign in.\
 ## Usage
 
 This is a game review application. Once a user logs in with the original account that was associated with the seeded data,
