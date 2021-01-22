@@ -9,7 +9,8 @@ Link to the front end https://github.com/antromo741/rails-js-game-review
 
 ## About
 
-In this portion of the project we have the Rails Api part. Within this repository contains all the controllers, models, dependencies\
+In this portion of the project we have the Rails Api part.\
+Within this repository contains all the controllers, models, dependencies
 and allows communication with the front end of the app.
 
 
